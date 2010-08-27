@@ -116,6 +116,7 @@ module ActiveMerchant #:nodoc:
             end
           end
           x.feesPayer opts[:fees_payer] ||= 'EACHRECEIVER'
+          x.reverseAllParallelPaymentsOnError opts[:reverse_all_parallel_payment_on_error] || 'false'
         end
       end
       
