@@ -27,7 +27,7 @@ describe ActiveMerchant::Billing::PaypalAdaptivePaymentGateway do
       @gateway.expects(:commit).with() do |action, xml|
         xml_contains_tag_with_value(xml, '//PayRequest/reverseAllParallelPaymentsOnError', 'true')
       end
-      @options.merge!(:reverse_all_parallel_payment_on_error => true)
+      @options.merge!(:reverse_all_parallel_payments_on_error => true)
       @gateway.pay(@options)
     end
 
@@ -35,7 +35,7 @@ describe ActiveMerchant::Billing::PaypalAdaptivePaymentGateway do
       @gateway.expects(:commit).with() do |action, xml|
         xml_contains_tag_with_value(xml, '//PayRequest/reverseAllParallelPaymentsOnError', 'false')
       end
-      @options.merge!(:reverse_all_parallel_payment_on_error => false)
+      @options.merge!(:reverse_all_parallel_payments_on_error => false)
       @gateway.pay(@options)
     end
 
